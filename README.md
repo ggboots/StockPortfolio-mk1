@@ -13,8 +13,8 @@ Website will record -> stock units that i hold, current price, daily change ($/%
 - Market time in corner, displaying current time (green) and if its closed (red)
 
 >> Creation
-- CSS grid + SaSS (Two divided screens)
-- Function for each element with 
-- API's providing current stock price
-- Ledger which is saved in storage on mongoBD
-- Market clock (Shows Open and Closed)
+[] CSS grid + SaSS (Two divided screens)
+[] Function for each element with 
+[] API's providing current stock price
+[] Ledger which is saved in storage on mongoBD
+[] Market clock (Shows Open and Closed)
