@@ -10,9 +10,42 @@
 <body>
     <div class="grid-container">
         <div class="grid-item item-1">George's Portfolio</div>
-        <div class="grid-item item-2">Total Holding</div>
-        <div class="grid-item item-3">Stock Portfolio</div>
-        <div class="grid-item item-4">PortfolioAllocation</div>
+        <div class="grid-item item-2">
+            <!-- Total Holding -->
+            <div class="holding-container">
+                <div>total holding</div>
+                <div>Cash position</div>
+                <div>todays Change</div>
+                <div>USD/AUD</div>
+            </div>
+        </div>
+        <div class="grid-item item-3">
+            <!-- Stock Portfolio -->
+            <div class="stock-container">
+                <div class="stock-row">
+                    <div>Ticker Symbol</div>
+                    <div>Stock Name</div>
+                    <div>Holding</div>
+                    <div>Unit</div>
+                    <div>currentPrice</div>
+                    <div class="change">change
+                        <div>change $</div>
+                        <div>change %</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item item-4">
+            PortfolioAllocation
+            <div class="chart-holding">
+                <div class="pie-chart">Chart</div>
+            </div>
+
+        </div>
+        <div class="grid-item item-5">Earnings Calender</div>
+    </div>
+    <div class="nav-container">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa nav-arrow fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
     </div>
 </body>
 </html>

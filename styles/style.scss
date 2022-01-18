@@ -26,37 +26,95 @@ body{
     width:100vw;
     background: linear-gradient(360deg,$btn-primary, $btn-secondary);
 }
+@media only screen and (min-width:900px){
+    .grid-container{
+        display:grid;
+        margin:1.25rem;
+        background-color: $container-bg;
+        gap:0.3em;
+        grid-template-areas:
+            "item1 item2 item2"
+            "item3 item3 item4"
+            "item3 item3 item4"
+            "item3 item3 item5";
 
-.grid-container{
-    display:grid;
-    margin:1.25rem;
-    background-color: $container-bg;
-    gap:0.3em;
-    grid-template-areas:
-        "item1 item2 item2"
-        "item3 item3 item4"
-        "item3 item3 ..";
+            .grid-item{
+                background-color: $container-primary;
+                color:#fff;
+                text-align: center;
+            }
+            
+            .item-1{
+                height:10vh;
+                grid-area:item1;
+            }
+            .item-2{
+                grid-area:item2;
+            }
+            .item-3{
+                height:75vh;
+                padding:0.5rem;
+                grid-area:item3;
+            }
+            .item-4{
+                grid-area:item4;
+            }
+            .item-5{
+                column-span: 1;
+                grid-area:item5;
+            }
+    }
 
-        .grid-item{
-            background-color: $container-primary;
-            color:#fff;
-            text-align: center;
+    .nav-container{
+        display:flex;
+        justify-content: center;
+        height:7.5vh;
+
+        .nav-arrow{
+            color:$navigationIcon;
+            width:7%;
+            height:inherit;
+            justify-self: center;
         }
-        
-        .item-1{
-            height:10vh;
-            grid-area:item1;
+        .nav-arrow:hover{
+            cursor: pointer;
         }
-        .item-2{
-            grid-area:item2;
+    }
+
+
+    .holding-container{
+        display:flex;
+        justify-content: space-evenly;
+    }
+
+    .stock-container{
+        display:grid;
+        grid-row: 1fr ;
+        padding:0.5rem;
+        height:100%;
+        background:red;
+
+        .stock-row{
+            display: flex;
+            justify-content: space-evenly;
+            height:12vh;
+            background:blue;
         }
-        .item-3{
-            height:75vh;
-            grid-area:item3;
+
+        .change{
+            display: flex;
+            flex-direction: column;
         }
-        .item-4{
-            height:45vh;
-            grid-area:item4;
-        }
+    }
+
+    .chart-holding{
+        display:flex;
+    }
+    .pie-chart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
 }
-
