@@ -9,29 +9,52 @@
 </head>
 <body>
     <div class="grid-container">
-        <div class="grid-item item-1">George's Portfolio</div>
+        <div class="grid-item item-1"><h1>George's Portfolio</h1></div>
         <div class="grid-item item-2">
             <!-- Total Holding -->
             <div class="holding-container">
-                <div>total holding</div>
-                <div>Cash position</div>
-                <div>todays Change</div>
-                <div>USD/AUD</div>
+                <div class="holding-header"></div>
+                <div class="holding-content">
+                    <div class="holding-element1">
+                        <div id="total-holding " class="total-holding">$</div>
+                        <div class="total-holding-title">total holding</div>
+                    </div>
+                    <div class="holding-element2">
+                        <div id="total-cash" class="total-cash">$</div>
+                        <div class="total-cash-title">Cash position</div>
+                    </div>
+                    <div class="holding-element3">
+                        <div class="dollarchange-title">todays Change ($)</div>
+                        <div id="dollarChange" class="dollar-change">$</div>
+                    </div>
+                    <div class="holding-element4">
+                        <div class="percentChange-title">todays Change (%)</div>
+                        <div id="percentChange" class="percent-change">%</div>
+                    </div>
+                    <div class="holding-element5">
+                        <div class="forex-title">USD / AUD</div>
+                        <div id="forex">$</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="grid-item item-3">
             <!-- Stock Portfolio -->
             <div class="stock-container">
-                <div class="stock-row">
+                <div class="stock-header-row">
                     <div>Ticker Symbol</div>
                     <div>Stock Name</div>
                     <div>Holding</div>
                     <div>Unit</div>
                     <div>currentPrice</div>
-                    <div class="change">change
-                        <div>change $</div>
-                        <div>change %</div>
+                    <div class="change">
+                        <div class="change-title">Change</div>
+                        <div class="dollar-change-stock">change $</div>
+                        <div class="percent-change-stock">change %</div>
                     </div>
+                </div>
+                <div class="stock-row">
+
                 </div>
             </div>
         </div>
@@ -45,7 +68,15 @@
         <div class="grid-item item-5">Earnings Calender</div>
     </div>
     <div class="nav-container">
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa nav-arrow fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
+        <svg id="arrow" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa nav-arrow fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
     </div>
+    <div class="ledger-container">
+        <div class="grid-item item-6">
+            <div class="ledger-header">
+
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>
