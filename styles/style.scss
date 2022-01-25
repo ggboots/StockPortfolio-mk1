@@ -7,7 +7,7 @@ $container-bg:#F3F3F3;
 
 $btn-primary:#243447;
 $btn-secondary:#373854;
-$navigationIcon:#004444;
+$navigationHeader:#004444;
 
 :root{
     font-family: 'Oxygen', sans-serif;
@@ -28,7 +28,7 @@ body{
 }
 
 //MVP - minimum viable product
-@media only screen and (min-width:500px){
+
     .grid-container{
         display:grid;
         margin:1.25rem;
@@ -163,45 +163,76 @@ body{
     }
 
     .stock-container{
-        display:grid;
+        display:flex;
+        flex-direction: column;
         padding:0.5rem;
         height:100%;
         background:red;
 
         .stock-header-row{
-            display: flex;
-            height:7vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+            padding:0.5rem;
+            height:54px;
             justify-content: space-evenly;
+            align-items: center;
             background:blue;
+            margin-bottom: 10px;
         }
 
-        .change{
-            display:grid;
-            grid-auto-rows: 30px;
-            grid-template-areas: "item1""item1", "item2""item3";
-            .change-title{
-                grid-area: item1;
-                height:10px;
+        .stock-header-change{
+            display:flex;
+            flex-direction: column;
+            .stock-header-change-title{
+                width:100%;
             }
-            .dollar-change-stock{
-                grid-area:item2;
+            .stock-header-change-options{
+                display: flex;
+                justify-content: space-evenly;
+                font-size: 0.8rem;
+            }
+        }
+
+        .stock-row{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
+            padding:0.5rem;
+            height:54px;
+            justify-content: space-evenly;
+            align-items: center;
+            background:$container-bg;
+            color:$text-secondary;
+            margin-bottom: 10px;
+
+            .stock-row-change{
                 display:flex;
-                align-self: flex-start;
-            }
-            .percent-change-stock{
-                grid-area:item3;
-                align-self: flex-end;
+                flex-direction: column;
+                .stock-row-change-options{
+                    display: flex;
+                    justify-content: space-evenly;
+                }
             }
         }
     }
 
+
+    .portfolio-chart-header{
+        padding:1rem;
+    }
     .chart-holding{
         display:flex;
-    }
-    .pie-chart{
-        display: flex;
         justify-content: center;
-        align-items: center;
+        margin:1rem;
+        
+        .pie-chart{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:200px;
+            width:70%;
+            background-color: $btn-primary;
+            border-radius: 1rem;
+        }
     }
 
     .nav-container{
@@ -210,7 +241,7 @@ body{
         height:10vh;
 
         .nav-arrow{
-            color:$navigationIcon;
+            color:$container-bg;
             width:7%;
             height:inherit;
             justify-self: center;
@@ -220,6 +251,7 @@ body{
         }
     }
 
+
     .ledger-container{
         display:grid;
         width:100vw;
@@ -227,97 +259,39 @@ body{
         .item-6{
             margin-right:2rem;
             margin-left:2rem;
-            background: blue;
+            background: $container-bg;
+
+            .ledger-header{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                margin-left:0.5rem;
+                margin-right:0.5rem;
+                margin-top:0.5rem;
+                padding:1rem;
+                height:4.5em;
+                justify-content: space-evenly;
+                align-items: center;
+                background:$navigationHeader;
+                color:$text-secondary;
+            }
+
+            .ledger-row{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                margin-left:0.5rem;
+                margin-right:0.5rem;
+                padding:1rem;
+                height:4.5em;
+                justify-content: space-evenly;
+                align-items: center;
+                background:$container-primary;
+                color:$text-secondary;
+            }
         }
 
         
     }
-}
 
-// Tablet viewsize
-@media only screen and (max-width:1100px){
-    // .grid-container{
-    //     position:relative;
-    //     display:grid;
-    //     margin:1.25rem;
-    //     background-color: $container-bg;
-    //         .grid-item{
-    //             background-color: $container-primary;
-    //             color:#fff;
-    //             text-align: center;
-    //             margin:0.25em;
-    //         }
-            
-    //         .item-1{
-    //             height:10vh;
-    //             grid-area:item1;
-    //         }
-    //         .item-1 > h1{
-    //             padding:1rem;
-    //             padding-left: 1.5rem;
-    //         }
-    //         .item-2{
-    //             grid-area:item2;
-    //         }
-    //         .item-3{
-    //             height:75vh;
-    //             padding:0.5rem;
-    //             grid-area:item3;
-    //         }
-    //         .item-4{
-    //             grid-area: item4;
-    //             display:none;
-    //         }
-    //         .item-5{
-    //             grid-area: item5;
-    //             display:none;
-    //         }
-            
-    // }
-}
-
-//Mobile viewsize
-@media only screen and (max-width:680px){
-    .grid-container{
-        position:relative;
-        display:flex;
-        flex-direction: column;
-        margin:1.25rem;
-        background-color: $container-bg;
-            .grid-item{
-                background-color: $container-primary;
-                color:#fff;
-                text-align: center;
-                margin:0.25em;
-            }
-            
-            .item-1{
-                height:10vh;
-                grid-area:item1;
-            }
-            .item-1 > h1{
-                padding:1rem;
-                padding-left: 1.5rem;
-            }
-            .item-2{
-                grid-area:item2;
-            }
-            .item-3{
-                height:75vh;
-                padding:0.5rem;
-                grid-area:item3;
-            }
-            .item-4{
-                grid-area: item4;
-                display:none;
-            }
-            .item-5{
-                grid-area: item5;
-                display:none;
-            }
-            
-    }
-}
 
 
 
