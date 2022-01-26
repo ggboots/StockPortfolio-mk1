@@ -28,16 +28,17 @@ body{
 }
 
 //MVP - minimum viable product
+// max-width is Desktop first -- min-width is Mobile first
 
     .grid-container{
         display:grid;
         margin:1.25rem;
         background-color: $container-bg;
         grid-template-areas:
-            "item1 item2 item2"
-            "item3 item3 item4"
-            "item3 item3 item4"
-            "item3 item3 item5";
+            "item1 item2 item2 item2 item2"
+            "item3 item3 item3 item4 item4"
+            "item3 item3 item3 item4 item4"
+            "item3 item3 item3 item5 item5";
 
             .grid-item{
                 background-color: $container-primary;
@@ -65,9 +66,11 @@ body{
                 grid-area:item3;
             }
             .item-4{
+                height:45vh;
                 grid-area:item4;
             }
             .item-5{
+                height:30vh;
                 column-span: 1;
                 grid-area:item5;
             }
@@ -290,6 +293,328 @@ body{
         }
 
         
+    }
+
+    //Desktop-Subview
+    @media only screen and (max-width:1400px) {
+        .grid-container{
+            display:grid;
+            margin:1.25rem;
+            background-color: $container-bg;
+            grid-template-areas:
+                "item1 item2 item2 item2 item2"
+                "item3 item3 item4 item4 item4"
+                "item3 item3 item4 item4 item4"
+                "item3 item3 item5 item5 item5"
+                ;
+    
+                .grid-item{
+                    background-color: $container-primary;
+                    color:#000;
+                    text-align: center;
+                    margin:0.25em;
+                }
+                
+                .item-1{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    grid-area:item1;
+                }
+                .item-1 > h1{
+                    padding:1rem;
+                    padding-left: 1.5rem;
+                }
+                .item-2{
+                    grid-area:item2;
+                }
+                .item-3{
+                    padding:0.5rem;
+                    grid-area:item3;
+                }
+                .item-4{
+                    grid-area:item4;
+                }
+                .item-5{
+                    column-span: 1;
+                    grid-area:item5;
+                }
+        }
+    }
+
+    //Tablet viewport
+    @media only screen and (max-width:1080px) {
+        .grid-container{
+            display:grid;
+            margin:1.25rem;
+            background-color: $container-bg;
+            grid-template-areas:
+                "item1 item2 item2 item2 item2"
+                "item3 item3 item3 item3 item3"
+                "item3 item3 item3 item3 item3"
+                ;
+    
+                .grid-item{
+                    background-color: $container-primary;
+                    color:#000;
+                    text-align: center;
+                    margin:0.25em;
+                }
+                
+                .item-1{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    grid-area:item1;
+                }
+                .item-1 > h1{
+                    padding:1rem;
+                    padding-left: 1.5rem;
+                }
+                .item-2{
+                    grid-area:item2;
+                }
+                .item-3{
+                    height:75vh;
+                    padding:0.5rem;
+                    grid-area:item3;
+                }
+                .item-4{
+                    grid-area:item4;
+                    display:none;
+                }
+                .item-5{
+                    display:none;
+                    column-span: 1;
+                    grid-area:item5;
+                }
+        }
+        .holding-container{
+            display:grid;
+            grid-template-areas: "holdingheader" "holdingcontent";
+            .holding-header{
+                width:100%;
+                height:20px;
+                grid-area: holdingheader;
+            }
+            .holding-content{
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 100%;
+                width:100%;
+                grid-area: holdingcontent;
+                justify-content: space-evenly;
+                .holding-element1{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item1" "item2" ;
+                    .total-holding{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .total-holding-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element2{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item1" "item2" ;
+                    .total-cash{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .total-holding-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element3{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item2" "item1" ;
+                    #dollarChange{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .dollarChange-title{
+                        justify-self: center;
+                        font-size:0.5rem;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element4{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item2" "item1" ;
+                    #percentChange{
+                        font-size: 0.8rem;
+                        grid-area: item1;
+                    }
+                    .total-holding-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element5{
+                    display:none;
+                }
+                
+            }
+        }
+    }
+
+    //
+    //mobile design
+    @media only screen and (max-width:640px) {
+        body{
+            overflow: scroll;
+        }
+        .grid-container{
+            display:grid;
+            margin:1.25rem;
+            background-color: $container-bg;
+            grid-template-areas:
+                "item1 item1 item1"
+                "item2 item2 item2"
+                "item2 item2 item2"
+                "item4 item4 item4"
+                "item3 item3 item3"
+                ;
+    
+                .grid-item{
+                    background-color: $container-primary;
+                    color:#000;
+                    text-align: center;
+                    margin:0.25em;
+                }
+                
+                .item-1{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    grid-area:item1;
+                }
+                .item-1 > h1{
+                    font-size:1.3rem;
+                    padding:1rem;
+                    padding-left: 1.5rem;
+                }
+                .item-2{
+                    grid-area:item2;
+                }
+                .item-3{
+                    height:60vh;
+                    padding:0.5rem;
+                    grid-area:item3;
+                }
+                .item-4{
+                    height:40vh;
+                    grid-area:item4;
+                    display:block;
+                }
+                .item-5{
+                    display:none;
+                    column-span: 1;
+                    grid-area:item5;
+                }
+        }
+        .holding-container{
+            display:grid;
+            grid-template-areas: "holdingheader" "holdingcontent";
+            .holding-header{
+                width:100%;
+                height:20px;
+                grid-area: holdingheader;
+            }
+            .holding-content{
+                display:grid;
+                grid-template-columns: 3fr 3fr 1.5fr 1.5fr;
+                grid-template-rows: 100%;
+                width:100%;
+                grid-area: holdingcontent;
+                justify-content: space-evenly;
+                .holding-element1{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item1" "item2" ;
+                    .total-holding{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .total-holding-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element2{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item1" "item2" ;
+                    .total-cash{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .total-holding-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element3{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item2" "item1" ;
+                    #dollarChange{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .dollarChange-title{
+                        justify-self: center;
+                        font-size:0.6rem;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element4{
+                    display:grid;
+                    grid-column: 1fr;
+                    grid-template-areas:"item2" "item1" ;
+                    #percentChange{
+                        font-size: 0.8rem;
+                        grid-area: item1;
+                    }
+                    .total-holding-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                .holding-element5{
+
+                    display:none;
+                    grid-column: 1fr;
+                    grid-template-areas:"item1" "item2" ;
+                    #forex{
+                        font-size: 1rem;
+                        grid-area: item1;
+                    }
+                    .forex-title{
+                        justify-self: center;
+                        grid-area: item2;
+                        padding:1rem;
+                    }
+                }
+                
+            }
+        }
+
     }
 
 
