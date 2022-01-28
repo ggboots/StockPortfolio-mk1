@@ -1,3 +1,11 @@
+//json does not support comment
+//package.json used to track dependencies
+
+// const express = require('express');
+
+// const app = express();
+
+
 // import Helper from '/src/helper.js';
 
 // export {

@@ -1,0 +1,23 @@
+{
+  "name": "stockportfolio",
+  "version": "1.0.0",
+  "description": "Dynamic Portfolio Website to track personal shares Website will record -> stock units that i hold, current price, daily change ($/%), total holding                     -> Ledger displaying date of purchase, what stock, amount and how many brought",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggboots/StockPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggboots/StockPortfolio/issues"
+  },
+  "homepage": "https://github.com/ggboots/StockPortfolio#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
