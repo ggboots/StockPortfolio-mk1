@@ -408,7 +408,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background: #004444;
-  color: #2C2C2C;
+  color: #E5E5E5;
 }
 
 .ledger-container .item-6 .ledger-row {
@@ -427,7 +427,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background: #7A7A7A;
-  color: #2C2C2C;
+  color: #E5E5E5;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -437,12 +437,6 @@ body {
     margin: 1.25rem;
     background-color: #F3F3F3;
         grid-template-areas: "item1 item2 item2 item2 item2" "item3 item3 item4 item4 item4" "item3 item3 item4 item4 item4" "item3 item3 item5 item5 item5";
-  }
-  .grid-container .grid-item {
-    background-color: #7A7A7A;
-    color: #000;
-    text-align: center;
-    margin: 0.25em;
   }
   .grid-container .item-1 {
     display: -webkit-box;
