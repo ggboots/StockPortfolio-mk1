@@ -1,0 +1,20 @@
+[
+    {
+        "Date": "time",
+        "stock": "TSLA",
+        "Transaction": "SELL",
+        "Units": 28,
+        "Price": 542,
+        "Currency":"AUD",
+        "TransactionAmount": "alot"
+    },
+    {
+        "Date": "time",
+        "stock": "APPL",
+        "Transaction": "SELL",
+        "Units": 28,
+        "Price": 542,
+        "Currency":"AUD",
+        "TransactionAmount": "alot"
+    }
+]

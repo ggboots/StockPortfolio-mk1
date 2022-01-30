@@ -1,12 +1,8 @@
-//json does not support comment
-//package.json used to track dependencies
-
-// allows use to load module and give access to exports
+// allows to load module and give access to exports
 const express = require('express')
 const axios = require('axios')
 const redis = require('redis')
 const responseTime = require('response-time')
-const {promisify} = require('util')
 
 const app = express()
 app.use(responseTime())
