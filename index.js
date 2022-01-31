@@ -1,4 +1,12 @@
 // allows to load module and give access to exports
+
+// Bedtime research
+// what is a CORSc--> security policy to allow data to be exchanged from two URLs
+//CrossOriginResourceSharing
+// MIME Type --> specifies the type of data
+// API keys, how do they work
+
+
 const express = require('express')
 const axios = require('axios')
 const redis = require('redis')
@@ -17,6 +25,15 @@ app.get('/rockets', async (req, res, next) => {
 })
 
 app.listen(3000, () => console.log("hello"))
+
+//ISSUE, not specifing in header the attribute
+
+
+
+// const ledgerData = require("ledger-Data.json");
+
+//fetch() -> requires http URL to work
+
 
 // const PORT = process.env.PORT || 5000;
 // const REDIS_PORT = process.env.PORT || 6379;

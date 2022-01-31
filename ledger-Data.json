@@ -1,8 +1,8 @@
 [
     {
-        "Date": "time",
+        "date": "time",
         "stock": "TSLA",
-        "Transaction": "SELL",
+        "Transaction": "BUY",
         "Units": 28,
         "Price": 542,
         "Currency":"AUD",
@@ -11,7 +11,7 @@
     {
         "Date": "time",
         "stock": "APPL",
-        "Transaction": "SELL",
+        "Transaction": "BUY",
         "Units": 28,
         "Price": 542,
         "Currency":"AUD",

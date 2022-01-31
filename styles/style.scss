@@ -29,9 +29,6 @@ body{
 
 //MVP - minimum viable product
 // max-width is Desktop first -- min-width is Mobile first
-
-//Mobile substract repeat attributes
-
     .grid-container{
         display:grid;
         margin:1.25rem;
@@ -294,9 +291,6 @@ body{
     //Desktop-Subview
     @media only screen and (max-width:1400px) {
         .grid-container{
-            display:grid;
-            margin:1.25rem;
-            background-color: $container-bg;
             grid-template-areas:
                 "item1 item2 item2 item2 item2 item2 item2"
                 "item3 item3 item3 item4 item4 item4 item4"
@@ -308,9 +302,6 @@ body{
     //Tablet viewport
     @media only screen and (max-width:1080px) {
         .grid-container{
-            display:grid;
-            margin:1.25rem;
-            background-color: $container-bg;
             grid-template-areas:
                 "item1 item2 item2 item2 item2"
                 "item3 item3 item3 item3 item3"
@@ -326,7 +317,6 @@ body{
                 }
         }
             .holding-content{
-                display:grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 .holding-element1{
                     grid-template-areas:"item1" "item1" "item2" ;
@@ -357,17 +347,12 @@ body{
             }
         }
     
-
-    //
     //mobile design
     @media only screen and (max-width:640px) {
         body{
             overflow: scroll;
         }
         .grid-container{
-            display:grid;
-            margin:1.25rem;
-            background-color: $container-bg;
             grid-template-areas:
                 "item1 item1 item1"
                 "item2 item2 item2"
@@ -393,124 +378,52 @@ body{
                 }
         }
         .holding-container{
-            display:grid;
-            grid-template-areas: "holdingheader" "holdingcontent";
-            .holding-header{
-                width:100%;
-                height:20px;
-                grid-area: holdingheader;
-            }
             .holding-content{
-                display:grid;
                 grid-template-columns: 3fr 3fr 1.8fr 1.8fr;
-                grid-template-rows: 100%;
-                width:100%;
-                grid-area: holdingcontent;
-                justify-content: space-evenly;
                 .holding-element1{
-                    display:grid;
-                    grid-column: 1fr;
-                    grid-template-areas:"item1" "item2" ;
                     .total-holding{
                         font-size: 1rem;
-                        grid-area: item1;
-                    }
-                    .total-holding-title{
-                        justify-self: center;
-                        grid-area: item2;
-                        padding:1rem;
                     }
                 }
                 .holding-element2{
-                    display:grid;
-                    grid-column: 1fr;
-                    grid-template-areas:"item1" "item2" ;
                     .total-cash{
                         font-size: 1rem;
-                        grid-area: item1;
-                    }
-                    .total-holding-title{
-                        justify-self: center;
-                        grid-area: item2;
-                        padding:1rem;
                     }
                 }
                 .holding-element3{
-                    display:grid;
-                    grid-column: 1fr;
                     font-size:8px;
-                    grid-template-areas:"item2" "item1" ;
-                    #dollarChange{
-                        font-size: 1rem;
-                        grid-area: item1;
-                    }
                     .dollarChange-title{
-                        justify-self: center;
                         font-size:0.6rem;
-                        grid-area: item2;
-                        padding:1rem;
                     }
                 }
                 .holding-element4{
-                    display:grid;
-                    grid-column: 1fr;
                     font-size:8px;
-                    grid-template-areas:"item2" "item1" ;
                     #percentChange{
                         font-size: 0.8rem;
-                        grid-area: item1;
                     }
                     .total-holding-title{
-                        justify-self: center;
-                        grid-area: item2;
-                        padding:1rem;
                         font-size:0.8rem;
                     }
                 }
-                .holding-element5{
+                //needs to be nested in parent element to work
+                .holding-element5{ 
                     display:none;
                 }
-                
             }
         }
 
         .stock-container{
-            display:flex;
-            flex-direction: column;
-            padding:0.5rem;
-            height:100%;
-            background:red;
-    
             .stock-header-row{
-                display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1.5fr;
-                padding:0.5rem;
-                height:54px;
-                justify-content: space-evenly;
-                align-items: center;
-                background:blue;
-                margin-bottom: 10px;
                 font-size:0.65rem;
             }
-    
             .stock-header-change{
-                display:flex;
-                flex-direction: column;
                 .stock-header-change-title{
-                    width:100%;
                     font-size:0.9rem;
                 }
                 .stock-header-change-options{
-                    display: flex;
-                    justify-content: space-evenly;
                     font-size: 0.5rem;
                 }
             }
         }
-        
-
     }
-
-
-
-
