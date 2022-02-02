@@ -1,3 +1,5 @@
+// const {ledger} = require('../ledger-Data.json')
+// console.log(ledger);
 let numberOfLedgerRows = 10;
 let numberOfStockList = 3;
 
@@ -107,7 +109,7 @@ function createLedgerRow(){
             case 0:
                 ledgerElement.setAttribute("id", "date");
                 if (elementValue == 0){
-                    ledgerElement.innerHTML = "Date";
+                    ledgerElement.innerHTML = "-";
                 };
                 elementValue++;
                 ledgerElement.setAttribute("class", "ledgerElement");
