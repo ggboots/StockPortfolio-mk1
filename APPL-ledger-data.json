@@ -1,0 +1,56 @@
+[
+    {
+        "date": "07-31-2019",
+        "stock": "APPL",
+        "transaction": "BUY",                                                                                 
+        "units": 40,
+        "price": 35.39,
+        "currency":"USD",
+        "transactionAmount": "1415.60"
+    },
+    {
+        "date": "01-31-2020",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 36,
+        "price": 44.29,
+        "currency":"USD",
+        "transactionAmount": "1594.44"
+    },
+    {
+        "date": "07-31-2020",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 24,
+        "price": 65.59,
+        "currency":"USD",
+        "transactionAmount": "1574.16"
+    },
+    {
+        "date": "01-29-2021",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 21,
+        "price": 92.60,
+        "currency":"USD",
+        "transactionAmount": "1944.60"
+    },
+    {
+        "date": "07-30-2021",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 19,
+        "price": 114.02,
+        "currency":"USD",
+        "transactionAmount": "2166.38"
+    },
+    {
+        "date": "01-31-2022",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 19,
+        "price": 123.69,
+        "currency":"USD",
+        "transactionAmount": "2350.11"
+    }
+]

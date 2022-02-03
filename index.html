@@ -82,8 +82,13 @@
         </div>
     </div>
     <script type="module" src="./index.js"></script>
-    <script defer src="./src/helper.js"></script>
-    <script defer src="./src/newRow.js"></script>
+    <script async src="./helper.js"></script>
+    <script async src="./newRow.js"></script>
+    <script defer type="module" src="./server.js"></script>
 <!-- using defer, so when html loads, javascript can reference each element, moving positon of javascript -->
+
+<!-- async will not stop HTML parsing, and will download whilst it read the rest -->
+<!-- issue with async, it executes once downloaded so may not be in order, -->
+<!-- defer will wait for the html to finish, and then execute js by order it is presented in -->
 </body>
 </html>

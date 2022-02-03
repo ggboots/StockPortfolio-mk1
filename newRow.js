@@ -1,8 +1,9 @@
-// const {ledger} = require('../ledger-Data.json')
-// console.log(ledger);
 let numberOfLedgerRows = 10;
 let numberOfStockList = 3;
 
+// node is a not a browser environment, cannot use require in .js file which manipulate DOM 
+
+fetch()
 
 function createStockRow(){
     let elementValue = 0;
@@ -184,3 +185,4 @@ while (numberOfStockList !=0){
     createStockRow();
     numberOfStockList--;
 }
+
