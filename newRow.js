@@ -1,10 +1,45 @@
+// const { response } = require("express");
+
+const { append } = require("express/lib/response");
+
 let numberOfLedgerRows = 10;
 let numberOfStockList = 3;
+const APPLjson = "./APPL-ledger-data.json";
+const TSLAjson = "./TSLA-ledger-data.json";
+
+
+// fetch("./APPL-ledger-data.json")
+// .then(res => res.json())
+// .then(data => console.log(data.date))
 
 // node is a not a browser environment, cannot use require in .js file which manipulate DOM 
+// function expression and declaration difference 
+// JSON.parse --> tells it that it is JSON
 
-fetch()
+//Jquery example
+$.getJSON(APPLjson, function(data){
+    var stock = JSON.stringify(data)
+    var stockParse = JSON.parse(stock)
+    // Access array first, then access objects
+    console.log(stockParse)
+    console.log(stockParse.length)
+    console.log(stockParse[0].date)
+})
 
+
+var ourReq = new XMLHttpRequest();
+ourReq.open('GET',APPLjson);
+
+ourReq.onload = function(){
+    var ourData = JSON.parse(ourReq.responseText);
+    append.ourData;
+};
+
+
+
+ourReq.send();
+
+ 
 function createStockRow(){
     let elementValue = 0;
     let stockContainer = document.getElementById("stock-container");
@@ -104,8 +139,23 @@ function createLedgerRow(){
     ledgerRow.setAttribute("id","ledger-row");
     ledgerRow.setAttribute("class", "ledger-row")
 
+    // $.getJSON(APPLjson, function(data){
+    //     var stock = JSON.stringify(data)
+    //     var stockParse = JSON.parse(stock)
+    //     console.log(stockParse[0].date);
+    // })
+
+    // $.getJSON(APPLjson, function(data){
+    //     var stock = JSON.stringify(data)
+    //     var stockParse = JSON.parse(stock)
+    //     console.log(stockParse)
+    // })
+
     for (i=0; i < 7;i++){
         ledgerElement = document.createElement("div");
+
+        // ES6 is fetch, using to teach myself
+       
         switch(i){
             case 0:
                 ledgerElement.setAttribute("id", "date");
@@ -185,4 +235,5 @@ while (numberOfStockList !=0){
     createStockRow();
     numberOfStockList--;
 }
+
 

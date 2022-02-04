@@ -18,9 +18,5 @@ for (i=0; i<ledger.length; i++){
     arraySwitch++;
     console.log(ledgerDate, ledgerStock, ledgerTransaction, ledgerUnits, ledgerPrice, ledgerCurrency, ledgerTransactionAmount);
 
-    let appendDate = document.getElementById("date");
-    appendDate.innerHTML = ledgerDate;
-
-
 }
 
