@@ -52,5 +52,43 @@
         "price": 123.69,
         "currency":"USD",
         "transactionAmount": "2350.11"
+    },
+
+
+    {
+        "date": "01-31-2022",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 19,
+        "price": 123.69,
+        "currency":"USD",
+        "transactionAmount": "2350.11"
+    },
+    {
+        "date": "01-31-2022",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 19,
+        "price": 123.69,
+        "currency":"USD",
+        "transactionAmount": "2350.11"
+    },
+    {
+        "date": "01-31-2022",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 19,
+        "price": 123.69,
+        "currency":"USD",
+        "transactionAmount": "2350.11"
+    },
+    {
+        "date": "01-31-2022",
+        "stock": "APPL",
+        "transaction": "BUY",
+        "units": 19,
+        "price": 123.69,
+        "currency":"USD",
+        "transactionAmount": "2350.11"
     }
 ]
