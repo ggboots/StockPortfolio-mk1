@@ -1,26 +1,38 @@
-// allows to load module and give access to exports
-const express = require('express')
-const axios = require('axios')
-const redis = require('redis')
-const responseTime = require('response-time')
-const fs = require('fs')
+// Using chart.js
 
-const app = express()
+const ctx = document.getElementById('chart');
+const symbols = [];
 
-//local request
-let ledgerData = fs.readFileSync('./data/TSLA-ledger-Data.json')
-let ledger = JSON.parse(ledgerData);
+const config = {
+    type: 'doughnut',
+    data: {
+        labels:[],
+        datasets:[{
+           label: 'Portfolio',
+           backgroundColor: [],
+           data: [] 
+        }]
+    },
+    options:{}
+}
 
-module.exports = ledger;
-const PORT = 299;
+const myChart = new Chart(
+    document.getElementById('chart'),
+    config
+)
 
+function addSymbol(symbol, shares){
+    fetch("/price?symbol="+symbol)
+    .then(response => response.json())
+    .then(data => {
+        const symbolData = {...data,shares};
+        symbols.push(symbolData);
+        addDataToChart(symbolData);
+    })
+}
 
-app.listen(PORT, () => console.log(`listening to Port ${PORT}`))
-
-// API keys, how do they work
-
-
-//fetch() -> requires http URL to work
-
-
+function addDataToChart(symbol){
+    myChart.data.label.push(symbol.symbol);
+    myChart.update();
+}
 

@@ -59,7 +59,7 @@
         <div class="grid-item item-4">
             <div class="portfolio-chart-header">PortfolioAllocation</div>
             <div class="chart-holding">
-                <div class="pie-chart"></div>
+                <canvas id="chart" class="chart" width="400" height="320"></canvas>
             </div>
         </div>
         <div class="grid-item item-5">Earnings Calender</div>
@@ -80,9 +80,12 @@
             </div>
         </div>
     </div>
-    <script type="module" src="./index.js"></script>
-    <script async src="./src/helper.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script arx="index.js"></script>
+
+    <script type="module" src="./server.js"></script>
+    <script defer src="./src/helper.js"></script>
     <script async src="./newRow.js"></script>
-    <script src="./server.js"></script>
 </body>
 </html>
