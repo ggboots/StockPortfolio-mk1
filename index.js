@@ -7,7 +7,8 @@ const fs = require('fs')
 
 const app = express()
 
-let ledgerData = fs.readFileSync('./TSLA-ledger-Data.json')
+//local request
+let ledgerData = fs.readFileSync('./data/TSLA-ledger-Data.json')
 let ledger = JSON.parse(ledgerData);
 
 module.exports = ledger;

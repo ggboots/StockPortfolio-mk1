@@ -1,60 +1,35 @@
 let numberOfLedgerRows;
 let numberOfStockList = 3;
+
 // look to do timeout to find out
+let ledgerRowsAdded = 0; // keep count of line added for ID attribute
 
-let linesAdded = 0; // keep count of line added for ID attribute
-const APPLjson = "./APPL-ledger-data.json";
-const TSLAjson = "./TSLA-ledger-data.json";
-
-let whatIsThisValue;
+const APPLjson = "./data/APPL-ledger-data.json";
+const TSLAjson = "./data/TSLA-ledger-data.json";
 
 function holdtheProgram(){
-
     const xhr = new XMLHttpRequest();
-
-    xhr.open('get', "./APPL-ledger-data.json");
+    xhr.open('get', APPLjson);
     xhr.onload = ()=> {
         var changeThis = xhr.responseText;
         var timeToUse = JSON.parse(changeThis);
-        useThisData(timeToUse);
-
+        dataLength(timeToUse);
     }
     xhr.send();
 
+    function dataLength(json){
+        let value = json.length;
+        numberOfLedgerRows = value;
+    }
 }
 
-function useThisData(json){
-    let value = json.length;
-    numberOfLedgerRows = value;
-}
-// look to use await to get numberOfledgerRows, before running rest of code
+//rename
 holdtheProgram();
 
-function callMe(){
-    console.log(numberOfLedgerRows);
-}   
+//timeout for awaiting callback
+const myAwait = setTimeout(await,1000);
 
-//Jquery example
-// $.getJSON(APPLjson, function(data){
-//     var stock = JSON.stringify(data)
-//     var stockParse = JSON.parse(stock)
-//     // Access array first, then access objects
-//     console.log(stockParse)
-//     console.log(stockParse.length)
-//     console.log(stockParse[0].date)
-// })
-
-//fetch option
-// fetch(APPLjson)
-// .then (response => response.json())
-// .then(data => console.log(data));
-
-//Promises
-// can be in 3 states, pending, resolve (does its job) or rejected (so error)
-//const promise = new promise((resolve, reject) =>
-//
-
-function awaitThis(){
+function await(){
 
     console.log(numberOfLedgerRows);
 function createStockRow(){
@@ -154,93 +129,46 @@ function createLedgerRow(){
     ledgerRow = document.createElement("div");
     ledgerRow.setAttribute("id","ledger-row");
     ledgerRow.setAttribute("class", "ledger-row")
-
-
-        // const xhr = new XMLHttpRequest();
-        // xhr.onload = function(){
-        //     var changeThis = xhr.responseText;
-        //     var timeToUse = JSON.parse(changeThis);
-        //     console.log(timeToUse[0].date);
-        // }
-        
-        // xhr.open('get', APPLjson);
-        // xhr.send();
-    
-        let elementValue = 0;
+    loadData();
 
     for (i=0; i < 7;i++){
         ledgerElement = document.createElement("div");
 
-        switch(elementValue){
+        switch(i){
             case 0:
-                ledgerElement.setAttribute("id", "date"+[linesAdded]);
-                if (elementValue == 0){
-                    // ledgerElement.innerHTML = date;
-                };
-                elementValue++;
+                ledgerElement.setAttribute("id", "date"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
-
                 break;
             case 1:
-                ledgerElement.setAttribute("id", "stock"+[linesAdded]);
-                if (elementValue == 1){
-
-                }
-                elementValue++;
+                ledgerElement.setAttribute("id", "stock"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
                 break;
             case 2:
-                ledgerElement.setAttribute("id", "transaction"+[linesAdded]);
-                if (elementValue == 2){
-                    // ledgerElement.innerHTML = "Transaction";
-                }
-                elementValue++;
+                ledgerElement.setAttribute("id", "transaction"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
-
                 break;
             case 3:
-                ledgerElement.setAttribute("id", "units"+[linesAdded]);
-                if (elementValue == 3){
-                    // ledgerElement.innerHTML = "units";
-                };
-                elementValue++;
+                ledgerElement.setAttribute("id", "units"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
-
                 break;
             case 4:
-                ledgerElement.setAttribute("id", "price"+[linesAdded]);
-                if (elementValue == 4){
-                    // ledgerElement.innerHTML = "price";
-                }
-                elementValue++;
+                ledgerElement.setAttribute("id", "price"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
-
                 break;
             case 5:
-                ledgerElement.setAttribute("id", "currency"+[linesAdded]);
-                if (elementValue == 5){
-                    // ledgerElement.innerHTML = "currency";
-                }
-                elementValue++;
+                ledgerElement.setAttribute("id", "currency"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
-
                 break;
             case 6: 
-                ledgerElement.setAttribute("id", "transactionAmount"+[linesAdded]);
-                if (elementValue == 6){
-                    // ledgerElement.innerHTML = "transactionAmount";
-                }
-                
-                elementValue++;
+                ledgerElement.setAttribute("id", "transactionAmount"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
-                
             }
-            loadData();
+            // loadData();
        
         ledgerRow.append(ledgerElement);
         
     }
-    linesAdded++;
+    ledgerRowsAdded++;
     ledgerContainer.append(ledgerRow);
 
     function loadData() {
@@ -250,14 +178,13 @@ function createLedgerRow(){
             try {
             var changeThis = xhr.responseText;
             var data = JSON.parse(changeThis);
+
             populateData(data);
             } catch(e){
                 console.warn("why is it undefined");
             }
         }
-
         xhr.send();
-
     }   
 
     function populateData(json){
@@ -288,50 +215,11 @@ function createLedgerRow(){
 
 
 
-// while (numberOfLedgerRows !=0){
-//     createLedgerRow();
-//     numberOfLedgerRows--;
-// }
 
-// while (numberOfStockList !=0){
-//     createStockRow();
-//     numberOfStockList--;
-// }
+     // const highestAmount = json.filter(function(json){
+        //     if(json.price >= 67){
+        //         return true;
+        //     }
+        // })
 
-
-// document.addEventListener("DOMContentLoaded", function(){
-//     loadData();
-// });
-
-// function loadData() {
-//     const xhr = new XMLHttpRequest();
-//     xhr.open('get', APPLjson);
-//     xhr.onload = ()=> {
-//         try {
-//         var changeThis = xhr.responseText;
-//         var timeToUse = JSON.parse(changeThis);
-//         populateData(timeToUse);
-//         } catch(e){
-//             console.warn("not avaiable");
-//         }
-//     }
-
-//     xhr.send();
-
-// }   
-
-// function populateData(json){
-//     for(i=0;i<7;i++){
-//         document.getElementById("date"+[i]).innerHTML = json[i].date;
-//         document.getElementById("stock"+[i]).innerHTML = json[i].stock;
-//         document.getElementById("transaction"+[i]).innerHTML = json[i].transaction;
-//         document.getElementById("units"+[i]).innerHTML = json[i].units;
-//         document.getElementById("price"+[i]).innerHTML = json[i].price;
-//         document.getElementById("currency"+[i]).innerHTML = json[i].currency;
-//         document.getElementById("transactionAmount"+[i]).innerHTML = json[i].transactionAmount;
-//     }
-// }
-
-// document.addEventListener("DOMContentLoaded", function(){
-//     loadData();
-// });
+        // console.log(highestAmount)

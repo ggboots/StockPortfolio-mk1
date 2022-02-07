@@ -14,7 +14,8 @@ Website will record -> stock units that i hold, current price, daily change ($/%
 
 >> Creation
 [] CSS grid + SaSS (Two divided screens)
-[] Function for each element with 
+[] ledger screen has scroll option for elements which go off the screen
+
 [] API's providing current stock price
-[] Ledger which is saved in storage on mongoBD
+[] Ledger which is saved in storage on Redis
 [] Market clock (Shows Open and Closed)
