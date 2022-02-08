@@ -221,14 +221,13 @@ body{
     .chart-holding{
         display:flex;
         justify-content: center;
-        margin:1rem;
+        align-self: center;
+        margin:0 auto;
+        width:420px;
+        height:320px;
         
-        .pie-chart{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height:200px;
-            width:70%;
+        #chart{
+            padding:1.5rem;
             background-color: $btn-primary;
             border-radius: 1rem;
         }

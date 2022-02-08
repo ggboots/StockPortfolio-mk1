@@ -129,7 +129,8 @@ function createLedgerRow(){
     ledgerRow = document.createElement("div");
     ledgerRow.setAttribute("id","ledger-row");
     ledgerRow.setAttribute("class", "ledger-row")
-    loadData();
+    loadDataAPPL();
+    // loadDataTSLA();
 
     for (i=0; i < 7;i++){
         ledgerElement = document.createElement("div");
@@ -171,9 +172,25 @@ function createLedgerRow(){
     ledgerRowsAdded++;
     ledgerContainer.append(ledgerRow);
 
-    function loadData() {
+    function loadDataAPPL() {
         const xhr = new XMLHttpRequest();
         xhr.open('get', APPLjson);
+        xhr.onload = ()=> {
+            try {
+            var changeThis = xhr.responseText;
+            var data = JSON.parse(changeThis);
+
+            populateData(data);
+            } catch(e){
+                console.warn("why is it undefined");
+            }
+        }
+        xhr.send();
+    }   
+
+    function loadDataTSLA() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', TSLAjson);
         xhr.onload = ()=> {
             try {
             var changeThis = xhr.responseText;
@@ -213,13 +230,3 @@ function createLedgerRow(){
 
     }
 
-
-
-
-     // const highestAmount = json.filter(function(json){
-        //     if(json.price >= 67){
-        //         return true;
-        //     }
-        // })
-
-        // console.log(highestAmount)
