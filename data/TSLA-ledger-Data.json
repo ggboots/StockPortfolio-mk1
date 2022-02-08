@@ -6,7 +6,7 @@
         "units": 28,
         "price": 542,
         "currency":"AUD",
-        "transactionAmount": "alot"
+        "transactionAmount": "15176"
     },
     {
         "date": "time",
@@ -15,6 +15,6 @@
         "units": 28,
         "price": 542,
         "currency":"AUD",
-        "transactionAmount": "alot"
+        "transactionAmount": "15176"
     }
 ]

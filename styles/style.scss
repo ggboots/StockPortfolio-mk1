@@ -223,7 +223,7 @@ body{
         justify-content: center;
         align-self: center;
         margin:0 auto;
-        width:420px;
+        width:400px;
         height:320px;
         
         #chart{
@@ -423,6 +423,20 @@ body{
                 .stock-header-change-options{
                     font-size: 0.5rem;
                 }
+            }
+        }
+        .chart-holding{
+            display:flex;
+            justify-content: center;
+            align-self: center;
+            margin:0 auto;
+            width:90%;
+            height:320px;
+            
+            #chart{
+                padding:1.5rem;
+                background-color: $btn-primary;
+                border-radius: 1rem;
             }
         }
     }
