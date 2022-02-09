@@ -3,11 +3,12 @@ let numberOfStockList = 3;
 
 // look to do timeout to find out
 let ledgerRowsAdded = 0; // keep count of line added for ID attribute
+let stockRowsAdded = 0;
 
 const APPLjson = "./data/APPL-ledger-data.json";
 const TSLAjson = "./data/TSLA-ledger-data.json";
 
-function holdtheProgram(){
+async function holdtheProgram(){
     const xhr = new XMLHttpRequest();
     xhr.open('get', APPLjson);
     xhr.onload = ()=> {
@@ -27,12 +28,12 @@ function holdtheProgram(){
 holdtheProgram();
 
 //timeout for awaiting callback
-const myAwait = setTimeout(await,1000);
+const myAwait = setTimeout(await,100);
 
 function await(){
 
     console.log(numberOfLedgerRows);
-function createStockRow(){
+    function createStockRow(){
     let elementValue = 0;
     let stockContainer = document.getElementById("stock-container");
     stockRow = document.createElement("div");
@@ -48,16 +49,13 @@ function createStockRow(){
         stockElement = document.createElement("div");
         switch(i){
             case 0:
-                stockElement.setAttribute("id", "tickerSymbol");
-                if (elementValue == 0){
-                    stockElement.innerHTML = "TSLA";
-                };
+                stockElement.setAttribute("id", "tickerSymbol"+[stockRowsAdded]);
                 elementValue++;
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 1:
-                stockElement.setAttribute("id", "stockName");
+                stockElement.setAttribute("id", "stockName"+[stockRowsAdded]);
                 if (elementValue == 1){
                     stockElement.innerHTML = "TSLA";
                 }
@@ -65,7 +63,7 @@ function createStockRow(){
                 stockElement.setAttribute("class", "stockElement");
                 break;
             case 2:
-                stockElement.setAttribute("id", "holding");
+                stockElement.setAttribute("id", "holding"+[stockRowsAdded]);
                 if (elementValue == 2){
                     stockElement.innerHTML = "TSLA";
                 }
@@ -74,7 +72,7 @@ function createStockRow(){
 
                 break;
             case 3:
-                stockElement.setAttribute("id", "units");
+                stockElement.setAttribute("id", "stockUnits"+[stockRowsAdded]);
                 if (elementValue == 3){
                     stockElement.innerHTML = "TSLA";
                 };
@@ -83,16 +81,13 @@ function createStockRow(){
 
                 break;
             case 4:
-                stockElement.setAttribute("id", "currentPrice");
-                if (elementValue == 4){
-                    stockElement.innerHTML = "TSLA";
-                }
+                stockElement.setAttribute("id", "currentPrice"+[stockRowsAdded]);
                 elementValue++;
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 5:
-                stockElement.setAttribute("id", "changeDollar");
+                stockElement.setAttribute("id", "changeDollar"+[stockRowsAdded]);
                 if (elementValue == 5){
                     stockElement.innerHTML = "TSLA";
                 }
@@ -101,7 +96,7 @@ function createStockRow(){
 
                 break;
             case 6: 
-                stockElement.setAttribute("id", "changePercentage");
+                stockElement.setAttribute("id", "changePercentage"+[stockRowsAdded]);
                 if (elementValue == 6){
                     stockElement.innerHTML = "TSLA";
                 }
@@ -212,7 +207,7 @@ function createLedgerRow(){
             document.getElementById("units"+[i]).innerHTML = json[i].units;
             document.getElementById("price"+[i]).innerHTML = json[i].price;
             document.getElementById("currency"+[i]).innerHTML = json[i].currency;
-            document.getElementById("transactionAmount"+[i]).innerHTML = json[i].transactionAmount;
+            document.getElementById("transactionAmount"+[i]).innerHTML = '$'+json[i].transactionAmount;
         }
     }
 

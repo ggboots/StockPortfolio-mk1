@@ -1,15 +1,12 @@
 //Work out total Holdings, Total change
 // Using chart.js
 
-
 const symbols = [];
 let APPLtotal = 0;
 let TSLAtotal = 0;
 
 async function makeChart(){
     await getData();
-
-    console.log(symbols)
     const ctx = document.getElementById('chart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -49,8 +46,11 @@ async function getData(){
     .then(data => {
         symbols.push(data[2].stock)
         for (i=0; i<data.length; i++){
-            let carryForward = parseInt(data[i].transactionAmount);
-            APPLtotal = APPLtotal + carryForward;
+            let units = parseInt(data[i].units);
+            // To find
+            let price = parseInt(data[i].price);
+            tradeAmount = units * price;
+            APPLtotal = APPLtotal + tradeAmount;
         }
     })
     .catch(err => {
@@ -64,8 +64,11 @@ async function getData(){
     .then(data => {
         symbols.push(data[1].stock)
         for (i=0; i<data.length; i++){
-            let carryForward = parseInt(data[i].transactionAmount);
-            TSLAtotal = TSLAtotal + carryForward;
+            let units = parseInt(data[i].units);
+            // To find
+            let price = parseInt(data[i].price);
+            tradeAmount = units * price;
+            TSLAtotal = TSLAtotal + tradeAmount;
         }
     })
     .catch(err => {
@@ -74,43 +77,4 @@ async function getData(){
 }
 
 makeChart();
-
-
-
-
-// const ctx = document.getElementById('chart');
-// const symbols = [];
-
-// const config = {
-//     type: 'doughnut',
-//     data: {
-//         labels:[],
-//         datasets:[{
-//            label: 'Portfolio',
-//            backgroundColor: [],
-//            data: [] 
-//         }]
-//     },
-//     options:{}
-// }
-
-// const myChart = new Chart(
-//     document.getElementById('chart'),
-//     config
-// )
-
-// function addSymbol(symbol, shares){
-//     fetch("/price?symbol="+symbol)
-//     .then(response => response.json())
-//     .then(data => {
-//         const symbolData = {...data,shares};
-//         symbols.push(symbolData);
-//         addDataToChart(symbolData);
-//     })
-// }
-
-// function addDataToChart(symbol){
-//     myChart.data.label.push(symbol.symbol);
-//     myChart.update();
-// }
 

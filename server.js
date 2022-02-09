@@ -6,21 +6,10 @@ const redis = require('redis')
 const responseTime = require('response-time')
 const fs = require('fs')
 
-const app = express()
-const port = 299;
-
-app.use(express.static())
+require('dotenv').config();
 
 
 
-// //fetch() -> requires http URL to work
+const api_key = process.env.API_KEYS;
 
-
-// //serve.js removed
-// //git rm --cached server.js has been used to stop it from being tracked
-
-
-
-app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`);
-})
+console.log(api_key);
