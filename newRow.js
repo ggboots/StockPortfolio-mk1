@@ -30,11 +30,11 @@ holdtheProgram();
 //timeout for awaiting callback
 const myAwait = setTimeout(await,100);
 
+let elementValue = 0;
 function await(){
 
     console.log(numberOfLedgerRows);
     function createStockRow(){
-    let elementValue = 0;
     let stockContainer = document.getElementById("stock-container");
     stockRow = document.createElement("div");
     stockRow.setAttribute("id","stock-row");
@@ -50,61 +50,62 @@ function await(){
         switch(i){
             case 0:
                 stockElement.setAttribute("id", "tickerSymbol"+[stockRowsAdded]);
-                elementValue++;
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 1:
                 stockElement.setAttribute("id", "stockName"+[stockRowsAdded]);
-                if (elementValue == 1){
-                    stockElement.innerHTML = "TSLA";
+                switch(elementValue){
+                    case 0:
+                        stockElement.innerHTML = "Apple Inc";
+                        elementValue++;
+                        break;
+                    case 1:
+                        stockElement.innerHTML = "Tesla Inc";
+                        elementValue++;
+                        break;
+                    case 2:
+                        stockElement.innerHTML = "Crypto.com";
+                        elementValue++;
+
                 }
-                elementValue++;
                 stockElement.setAttribute("class", "stockElement");
                 break;
             case 2:
                 stockElement.setAttribute("id", "holding"+[stockRowsAdded]);
-                if (elementValue == 2){
-                    stockElement.innerHTML = "TSLA";
-                }
-                elementValue++;
+
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 3:
                 stockElement.setAttribute("id", "stockUnits"+[stockRowsAdded]);
-                if (elementValue == 3){
-                    stockElement.innerHTML = "TSLA";
-                };
-                elementValue++;
+
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 4:
                 stockElement.setAttribute("id", "currentPrice"+[stockRowsAdded]);
-                elementValue++;
+
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 5:
                 stockElement.setAttribute("id", "changeDollar"+[stockRowsAdded]);
                 if (elementValue == 5){
-                    stockElement.innerHTML = "TSLA";
+                    stockElement.innerHTML = "unavailable";
                 }
-                elementValue++;
                 stockElement.setAttribute("class", "stockElement");
 
                 break;
             case 6: 
                 stockElement.setAttribute("id", "changePercentage"+[stockRowsAdded]);
                 if (elementValue == 6){
-                    stockElement.innerHTML = "TSLA";
+                    stockElement.innerHTML = "Unavailable";
                 }
-                elementValue++;
                 stockElement.setAttribute("class", "stockElement");
-
-
-        }
+                
+                
+            }
         if (elementValue == 6){
             stockChangeSpacing.append(stockElement);
         } else if (elementValue == 7) {
@@ -116,6 +117,7 @@ function await(){
             stockRow.append(stockElement);
         }
     }
+    stockRowsAdded++;
     stockContainer.append(stockRow);
 }
 

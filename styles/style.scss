@@ -34,7 +34,7 @@ body{
         margin:1.25rem;
         background-color: $container-bg;
         grid-template-areas:
-            "item1 item2 item2 item2 item2"
+            "item1 item1 item2 item2 item2"
             "item3 item3 item3 item4 item4"
             "item3 item3 item3 item4 item4"
             "item3 item3 item3 item5 item5";
@@ -83,7 +83,7 @@ body{
         }
         .holding-content{
             display:grid;
-            grid-template-columns: repeat(5,1fr);
+            grid-template-columns: repeat(4,1fr);
             grid-template-rows: 100%;
             width:100%;
             grid-area: holdingcontent;
@@ -332,7 +332,6 @@ body{
                         font-size:0.8rem;
                     }
                 }
-                
                 .dollarChange-title{
                     font-size:0.5rem;
                 }

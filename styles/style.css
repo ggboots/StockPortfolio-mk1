@@ -24,7 +24,7 @@ body {
   display: grid;
   margin: 1.25rem;
   background-color: #F3F3F3;
-      grid-template-areas: "item1 item2 item2 item2 item2" "item3 item3 item3 item4 item4" "item3 item3 item3 item4 item4" "item3 item3 item3 item5 item5";
+      grid-template-areas: "item1 item1 item2 item2 item2" "item3 item3 item3 item4 item4" "item3 item3 item3 item4 item4" "item3 item3 item3 item5 item5";
 }
 
 .grid-container .grid-item {
@@ -106,8 +106,8 @@ body {
 .holding-container .holding-content {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   -ms-grid-rows: 100%;
       grid-template-rows: 100%;
   width: 100%;

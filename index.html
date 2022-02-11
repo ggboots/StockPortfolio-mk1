@@ -25,12 +25,8 @@
                         <div class="total-cash-title">Cash position</div>
                     </div>
                     <div class="holding-element3">
-                        <div class="dollarchange-title">todays Change ($)</div>
-                        <div id="dollarChange" class="dollar-change">$</div>
-                    </div>
-                    <div class="holding-element4">
-                        <div class="percentChange-title">todays Change (%)</div>
-                        <div id="percentChange" class="percent-change">%</div>
+                        <div class="dollarchange-title">Market Time</div>
+
                     </div>
                     <div class="holding-element5">
                         <div class="forex-title">USD / AUD</div>
@@ -63,7 +59,7 @@
                 <canvas id="chart"></canvas>
             </div>
         </div>
-        <div class="grid-item item-5">Earnings Calender</div>
+        <div class="grid-item item-5">Add to Ledger</div>
     </div>
     <div class="nav-container">
         <svg id="arrow" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa nav-arrow fa-chevron-down fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg>
@@ -81,12 +77,13 @@
             </div>
         </div>
     </div>
-
+    <script src="./src/makeChart.js"></script>
     <script src="./src/helper.js"></script>
-    <script async src="index.js"></script>
+    <script src="./newRow.js"></script>
     
     <script type="module" src="./server.js"></script>
-    <script src="./newRow.js"></script>
+    <script async src="index.js"></script>
+
     <script defer src="apiKeys.js"></script>
 </body>
 </html>
