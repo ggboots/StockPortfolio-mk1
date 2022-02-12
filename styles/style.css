@@ -388,6 +388,7 @@ body {
 .ledger-container .item-6 .ledger-header {
   display: -ms-grid;
   display: grid;
+  position: relative;
   -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-left: 0.5rem;
@@ -403,6 +404,20 @@ body {
           align-items: center;
   background: #004444;
   color: #E5E5E5;
+}
+
+.ledger-container .item-6 .ledger-header .ledger-header-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 20px;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.ledger-container .item-6 .ledger-header .ledger-header-icon:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .ledger-container .item-6 .ledger-row {

@@ -260,16 +260,27 @@ body{
 
             .ledger-header{
                 display: grid;
+                position:relative;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 margin-left:0.5rem;
                 margin-right:0.5rem;
                 margin-top:0.5rem;
                 padding:1rem;
                 height:4.5em;
+                // font-size: small;
                 justify-content: space-evenly;
                 align-items: center;
                 background:$navigationHeader;
                 color:$container-secondary;
+                .ledger-header-icon{
+                    display: flex;
+                    height:20px;
+                    filter: invert(100%); //alter svg color
+                }
+                .ledger-header-icon:hover{
+                    transform: rotate(180deg);
+                }
+            
             }
 
             .ledger-row{

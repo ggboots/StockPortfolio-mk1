@@ -1,6 +1,8 @@
 let numberOfLedgerRows;
 let numberOfStockList = 3;
 
+//using highOrder from helper.js
+
 // look to do timeout to find out
 let ledgerRowsAdded = 0; // keep count of line added for ID attribute
 let stockRowsAdded = 0;
@@ -33,7 +35,7 @@ const myAwait = setTimeout(await,100);
 let elementValue = 0;
 function await(){
 
-    console.log(numberOfLedgerRows);
+    // console.log(numberOfLedgerRows);
     function createStockRow(){
     let stockContainer = document.getElementById("stock-container");
     stockRow = document.createElement("div");
@@ -177,7 +179,21 @@ function createLedgerRow(){
             var changeThis = xhr.responseText;
             var data = JSON.parse(changeThis);
 
+            
+            if (HighOrder == "false"){
+                data.sort(GetSortOrderLowest("price"));
+                for (var item in data){
+                    console.log(data[item].date);
+                }
+            } else if (HighOrder == "true"){
+                data.sort(GetSortOrderHighest("price"));
+                for (var item in data){
+                    console.log(data[item].date);
+                }
+            }
+
             populateData(data);
+
             } catch(e){
                 console.warn("why is it undefined");
             }
@@ -199,7 +215,17 @@ function createLedgerRow(){
             }
         }
         xhr.send();
+
     }   
+
+
+    // function combineJSON(){
+    //     let combine;
+    //     loadDataTSLA(combine);
+    //     loadDataAPPL(combine);
+    //     let data = JSON.parse(combine);
+    //     console.log(data)
+    // }
 
     function populateData(json){
         for(i=0;i<json.length;i++){
@@ -212,6 +238,31 @@ function createLedgerRow(){
             document.getElementById("transactionAmount"+[i]).innerHTML = '$'+json[i].transactionAmount;
         }
     }
+
+
+    // https://www.c-sharpcorner.com/UploadFile/fc34aa/sort-json-object-array-based-on-a-key-attribute-in-javascrip/#:~:text=JSON%20return%20type%20is%20an,to%20get%20the%20sorting%20implemented.
+    function GetSortOrderLowest(prop){
+        return function(a,b){
+            if(a[prop] > b[prop]){
+                return 1;
+            } else if (a[prop] < b[prop]){
+                return -1;
+            }
+            return 0;
+        }
+    }
+    function GetSortOrderHighest(prop){
+        return function(a,b){
+            if(a[prop] < b[prop]){
+                return 1;
+            } else if (a[prop] > b[prop]){
+                return -1;
+            }
+            return 0;
+        }
+    }
+
+    // combineJSON();
 
 }
 
