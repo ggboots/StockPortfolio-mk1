@@ -73,9 +73,6 @@ async function getData(){
     .catch(err => {
         console.log('error - TSLA')
     })
-
-
-    // symbols.push("Cash");
 }
 
 makeChart();

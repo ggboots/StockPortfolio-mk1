@@ -1,16 +1,10 @@
 let priceArrow = document.getElementById("priceArrow");
 let dateArrow = document.getElementById("dateArrow");
+let transactionAmountArrow = document.getElementById("transactionAmountArrow");
 let arrowSwitch = true;
 let HighOrder = this.sessionStorage.getItem('arrowStatus');
-// JSON.parse(HighOrder.toLowerCase());
-
-// if (HighOrder == null){
-//     sessionStorage.setItem('arrowStatus',true);
-//     window.location.reload();
-//     console.log("no val");
-// } 
-
-//setItem into sessionStorage
+let dateOrder = this.sessionStorage.getItem('dateStatus');
+let transactionAmountOrder = this.sessionStorage.getItem('transactionAmountStatus');
 
 const pageAccessedByReload = (
     (window.PerformanceNavigationTiming && window.PerformanceNavigationTiming.type === 1) ||
@@ -20,8 +14,10 @@ const pageAccessedByReload = (
     .includes('reload')
 );
     
-if (HighOrder == null){
+if (HighOrder == null && dateOrder == null){
     sessionStorage.setItem('arrowStatus',false);
+    sessionStorage.setItem('dateStatus',false);
+    // sessionStorage.setItem('transactionAmountStatus',false);
     window.location.reload();
 } 
 
@@ -43,41 +39,45 @@ arrow.addEventListener("click", function(){
 });
 
 
-// priceArrow.addEventListener('click', function(){
-//     if(HighOrder == true){
-//         HighOrder = false;
-//     }else if(HighOrder == false){
-//         HighOrder = true;
-//     }
-//     console.log(HighOrder);
+
+priceArrow.addEventListener('click', function(){
+    if(HighOrder == "true"){
+        sessionStorage.removeItem('arrowStatus');
+        sessionStorage.setItem('arrowStatus',false);
+        window.location.reload();
+    }else if(HighOrder == "false"){
+        sessionStorage.removeItem('arrowStatus');
+        sessionStorage.setItem('arrowStatus',true);
+        window.location.reload();
+    } 
+
+});
+
+// dateArrow.addEventListener('click', function(){
+//     if(dateOrder == "true"){
+//         sessionStorage.removeItem('dateStatus');
+//         sessionStorage.setItem('dateStatus',false);
+//         window.location.reload();
+//     }else if(dateOrder == "false"){
+//         sessionStorage.removeItem('dateStatus');
+//         sessionStorage.setItem('dateStatus',true);
+//         window.location.reload();
+//     } 
+
+// });
+
+// transactionAmountArrow.addEventListener('click', function(){
+//     if(transactionAmountOrder == "true"){
+//         sessionStorage.removeItem('transactionAmountStatus');
+//         sessionStorage.setItem('transactionAmountStatus',false);
+//         window.location.reload();
+//     }else if(transactionAmountOrder == "false"){
+//         sessionStorage.removeItem('transactionAmountStatus');
+//         sessionStorage.setItem('transactionAmountStatus',true);
+//         window.location.reload();
+//     } 
+
 // });
 
 
-
-priceArrow.addEventListener('click', function(){
-    if (HighOrder == null){
-        sessionStorage.setItem('arrowStatus',true);
-        window.location.reload();
-        console.log("no val");
-    } 
-    if(HighOrder == "true"){
-        // HighOrder = false;
-        sessionStorage.removeItem('arrowStatus');
-        sessionStorage.setItem('arrowStatus',false);
-        window.location.reload();``
-        // console.log(sessionStorage)
-    }else if(HighOrder == "false"){
-        // HighOrder = true;
-        sessionStorage.removeItem('arrowStatus')
-        sessionStorage.setItem('arrowStatus',true)
-        window.location.reload();
-        // console.log(sessionStorage)
-    } 
-    // else if(HighOrder == false){
-    //     HighOrder = true;
-    //     sessionStorage.removeItem('arrowStatus')
-    //     sessionStorage.setItem('arrowStatus','true')
-    //     console.log(storage)
-    // }
-
-});
+//When clicking on a drop down menu, set rest to null

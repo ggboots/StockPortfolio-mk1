@@ -1,6 +1,7 @@
 let numberOfLedgerRows;
 let numberOfStockList = 3;
 
+let ledgerCollection = [];
 //using highOrder from helper.js
 
 // look to do timeout to find out
@@ -9,25 +10,68 @@ let stockRowsAdded = 0;
 
 const APPLjson = "./data/APPL-ledger-data.json";
 const TSLAjson = "./data/TSLA-ledger-data.json";
+const TSLA0json = "./data/TSLA-0-ledger-data.json";
 
-async function holdtheProgram(){
+
+
+
+// function holdtheProgram(){
+//     const xhr = new XMLHttpRequest();
+//     xhr.open('get', APPLjson);
+//     xhr.onload = ()=> {
+//         var request = xhr.responseText;
+//         dataLength(JSON.parse(request));
+//     }
+//     function dataLength(json){
+//         numberOfLedgerRows = json.length;
+//         ledgerCollection = [...json];
+//     }
+//     xhr.send();
+// }
+
+
+
+function APPL(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', TSLAjson);
+    xhr.onload = ()=> {
+        var request = xhr.responseText;
+        dataLength(JSON.parse(request));
+    }
+    function dataLength(json){
+        numberOfLedgerRows = json.length;
+        let APPLCollection = [...json];
+        ledgerCollection.push(...APPLCollection);
+    }
+    xhr.send();
+}
+
+function TSLA(){
     const xhr = new XMLHttpRequest();
     xhr.open('get', APPLjson);
     xhr.onload = ()=> {
-        var changeThis = xhr.responseText;
-        var timeToUse = JSON.parse(changeThis);
-        dataLength(timeToUse);
+        var request = xhr.responseText;
+        dataLength(JSON.parse(request));
+    }
+    function dataLength(json){
+        numberOfLedgerRows = json.length;
+        let TSLACollection = [...json];
+        ledgerCollection.push(...TSLACollection);
     }
     xhr.send();
-
-    function dataLength(json){
-        let value = json.length;
-        numberOfLedgerRows = value;
-    }
 }
+
+function holdtheProgram(){
+    TSLA();
+    APPL();
+    console.log(ledgerCollection);
+}
+
 
 //rename
 holdtheProgram();
+
+
 
 //timeout for awaiting callback
 const myAwait = setTimeout(await,100);
@@ -35,7 +79,6 @@ const myAwait = setTimeout(await,100);
 let elementValue = 0;
 function await(){
 
-    // console.log(numberOfLedgerRows);
     function createStockRow(){
     let stockContainer = document.getElementById("stock-container");
     stockRow = document.createElement("div");
@@ -129,9 +172,10 @@ function createLedgerRow(){
     ledgerRow.setAttribute("id","ledger-row");
     ledgerRow.setAttribute("class", "ledger-row")
     loadDataAPPL();
-    // loadDataTSLA();
+    loadDataTSLA();
+    // loadDataTSLA0();
 
-    for (i=0; i < 7;i++){
+    for (i=0; i < 20;i++){
         ledgerElement = document.createElement("div");
 
         switch(i){
@@ -171,6 +215,7 @@ function createLedgerRow(){
     ledgerRowsAdded++;
     ledgerContainer.append(ledgerRow);
 
+
     function loadDataAPPL() {
         const xhr = new XMLHttpRequest();
         xhr.open('get', APPLjson);
@@ -179,17 +224,17 @@ function createLedgerRow(){
             var changeThis = xhr.responseText;
             var data = JSON.parse(changeThis);
 
-            
+
             if (HighOrder == "false"){
                 data.sort(GetSortOrderLowest("price"));
-                for (var item in data){
-                    console.log(data[item].date);
-                }
+                // for (var item in data){
+                //     console.log(data[item].date);
+                // }
             } else if (HighOrder == "true"){
                 data.sort(GetSortOrderHighest("price"));
-                for (var item in data){
-                    console.log(data[item].date);
-                }
+                // for (var item in data){
+                //     console.log(data[item].date);
+                // }
             }
 
             populateData(data);
@@ -208,24 +253,34 @@ function createLedgerRow(){
             try {
             var changeThis = xhr.responseText;
             var data = JSON.parse(changeThis);
-
             populateData(data);
             } catch(e){
                 console.warn("why is it undefined");
             }
         }
+        xhr.open('get', TSLAjson);
+
         xhr.send();
 
     }   
 
+    function loadDataTSLA0() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', TSLA0json);
+        xhr.onload = ()=> {
+            try {
+            var changeThis = xhr.responseText;
+            var data = JSON.parse(changeThis);
+            populateData(data);
+            } catch(e){
+                console.warn("why is it undefined");
+            }
+        }
+        xhr.open('get', TSLA0json);
 
-    // function combineJSON(){
-    //     let combine;
-    //     loadDataTSLA(combine);
-    //     loadDataAPPL(combine);
-    //     let data = JSON.parse(combine);
-    //     console.log(data)
-    // }
+        xhr.send();
+
+    }   
 
     function populateData(json){
         for(i=0;i<json.length;i++){
@@ -238,6 +293,7 @@ function createLedgerRow(){
             document.getElementById("transactionAmount"+[i]).innerHTML = '$'+json[i].transactionAmount;
         }
     }
+
 
 
     // https://www.c-sharpcorner.com/UploadFile/fc34aa/sort-json-object-array-based-on-a-key-attribute-in-javascrip/#:~:text=JSON%20return%20type%20is%20an,to%20get%20the%20sorting%20implemented.
@@ -263,7 +319,6 @@ function createLedgerRow(){
     }
 
     // combineJSON();
-
 }
 
         while (numberOfLedgerRows !=0){

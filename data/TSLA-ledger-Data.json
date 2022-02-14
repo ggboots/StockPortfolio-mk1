@@ -1,20 +1,74 @@
 [
     {
-        "date": "",
+        "date": "01-04-2020",
         "stock": "TSLA",
         "transaction": "BUY",                                                                                 
-        "units": 28,
-        "price": 542,
+        "units": 25,
+        "price": 171.96,
         "currency":"AUD",
-        "transactionAmount": "15176"
+        "transactionAmount": "4318.97"
     },
     {
-        "date": "time",
+        "date": "07-05-2020",
         "stock": "TSLA",
         "transaction": "BUY",
-        "units": 28,
-        "price": 542,
+        "units": 15,
+        "price": 399.47,
         "currency":"AUD",
-        "transactionAmount": "15176"
+        "transactionAmount": "3575.27"
+    },
+    {
+        "date": "23-07-2020",
+        "stock": "TSLA",
+        "transaction": "BUY",
+        "units": 5,
+        "price": 442.91,
+        "currency":"AUD",
+        "transactionAmount": "2234.54"
+    },
+    {
+        "date": "16-10-2020",
+        "stock": "TSLA",
+        "transaction": "BUY",
+        "units": 4,
+        "price": 633.07,
+        "currency":"AUD",
+        "transactionAmount": "2532.30"
+    },
+    {
+        "date": "10-11-2021",
+        "stock": "TSLA",
+        "transaction": "BUY",
+        "units": 1,
+        "price": 1391.72,
+        "currency":"AUD",
+        "transactionAmount": "1391.72"
+    },
+    {
+        "date": "18-11-2021",
+        "stock": "TSLA",
+        "transaction": "BUY",
+        "units": 3,
+        "price": 1524.57,
+        "currency":"AUD",
+        "transactionAmount": "4573.71"
+    },
+    {
+        "date": "21-12-2021",
+        "stock": "TSLA",
+        "transaction": "BUY",
+        "units": 5,
+        "price": 1272.46,
+        "currency":"AUD",
+        "transactionAmount": "6362.31"
+    },
+    {
+        "date": "14-02-2021",
+        "stock": "TSLA",
+        "transaction": "BUY",
+        "units": 5,
+        "price": 1223.18,
+        "currency":"AUD",
+        "transactionAmount": "6115.93"
     }
 ]
