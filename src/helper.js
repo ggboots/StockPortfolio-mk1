@@ -16,7 +16,7 @@ const pageAccessedByReload = (
     
 if (HighOrder == null && dateOrder == null){
     sessionStorage.setItem('arrowStatus',false);
-    sessionStorage.setItem('dateStatus',false);
+    // sessionStorage.setItem('dateStatus',false);
     // sessionStorage.setItem('transactionAmountStatus',false);
     window.location.reload();
 } 
@@ -24,7 +24,6 @@ if (HighOrder == null && dateOrder == null){
 if(pageAccessedByReload === true){
     arrowSwitch = true;
     window.scrollBy(0,-900);
-    console.log("here");
 }
 
 

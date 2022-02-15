@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <title>StockPortfolio</title>
+
 </head>
 <body>
     <div class="grid-container">
@@ -27,7 +28,7 @@
                     <div class="holding-element3">
                         <div class="dollarchange-title">Market Time</div>
 
-                    </div>
+                    </div>  
                     <div class="holding-element5">
                         <div class="forex-title">USD / AUD</div>
                         <div id="forex">$</div>
@@ -83,6 +84,8 @@
             </div>
         </div>
     </div>
+    <script src="./ledgerData.js"></script>
+    <script src="apiKeys.js"></script>
     <script src="./createRow.js"></script>
     <script src="./src/helper.js"></script>
     <script src="./src/makeChart.js"></script>
@@ -90,6 +93,5 @@
     <script type="module" src="./server.js"></script>
     <script async src="index.js"></script>
 
-    <script defer src="apiKeys.js"></script>
 </body>
 </html>

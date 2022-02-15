@@ -3,6 +3,7 @@
 const symbols = [];
 let APPLtotal = 0;
 let TSLAtotal = 0;
+let TSLAtotal1 = 0;
 
 async function makeChart(){
     await getData();
@@ -43,7 +44,7 @@ async function getData(){
             return res.json();
     })
     .then(data => {
-        symbols.push(data[2].stock)
+        symbols.push(data[0].stock)
         for (i=0; i<data.length; i++){
             let units = parseInt(data[i].units);
             // To find
@@ -68,6 +69,24 @@ async function getData(){
             let price = parseInt(data[i].price);
             tradeAmount = units * price;
             TSLAtotal = TSLAtotal + tradeAmount;
+        }
+    })
+    .catch(err => {
+        console.log('error - TSLA')
+    })
+
+    await fetch('./data/TSLA-0-ledger-data.json')
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        for (i=0; i<data.length; i++){
+            let units = parseInt(data[i].units);
+            // To find
+            let price = parseInt(data[i].price);
+            tradeAmount = units * price;
+            TSLAtotal1 = TSLAtotal1 + tradeAmount;
+            TSLAtotal = TSLAtotal + TSLAtotal1;
         }
     })
     .catch(err => {

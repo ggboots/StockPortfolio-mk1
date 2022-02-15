@@ -1,84 +1,18 @@
-let numberOfLedgerRows;
-let numberOfStockList = 3;
-
-let ledgerCollection = [];
+// using ledgerData.js
 //using highOrder from helper.js
 
 // look to do timeout to find out
 let ledgerRowsAdded = 0; // keep count of line added for ID attribute
 let stockRowsAdded = 0;
 
-const APPLjson = "./data/APPL-ledger-data.json";
-const TSLAjson = "./data/TSLA-ledger-data.json";
-const TSLA0json = "./data/TSLA-0-ledger-data.json";
-
-
-
-
-// function holdtheProgram(){
-//     const xhr = new XMLHttpRequest();
-//     xhr.open('get', APPLjson);
-//     xhr.onload = ()=> {
-//         var request = xhr.responseText;
-//         dataLength(JSON.parse(request));
-//     }
-//     function dataLength(json){
-//         numberOfLedgerRows = json.length;
-//         ledgerCollection = [...json];
-//     }
-//     xhr.send();
-// }
-
-
-
-function APPL(){
-    const xhr = new XMLHttpRequest();
-    xhr.open('get', TSLAjson);
-    xhr.onload = ()=> {
-        var request = xhr.responseText;
-        dataLength(JSON.parse(request));
-    }
-    function dataLength(json){
-        numberOfLedgerRows = json.length;
-        let APPLCollection = [...json];
-        ledgerCollection.push(...APPLCollection);
-    }
-    xhr.send();
-}
-
-function TSLA(){
-    const xhr = new XMLHttpRequest();
-    xhr.open('get', APPLjson);
-    xhr.onload = ()=> {
-        var request = xhr.responseText;
-        dataLength(JSON.parse(request));
-    }
-    function dataLength(json){
-        numberOfLedgerRows = json.length;
-        let TSLACollection = [...json];
-        ledgerCollection.push(...TSLACollection);
-    }
-    xhr.send();
-}
-
-function holdtheProgram(){
-    TSLA();
-    APPL();
-    console.log(ledgerCollection);
-}
-
-
-//rename
-holdtheProgram();
-
-
-
 //timeout for awaiting callback
 const myAwait = setTimeout(await,100);
-
-let elementValue = 0;
+            
 function await(){
-
+    let elementValue = 0;
+    let numberOfLedgerRows = ledgerCollection.length;
+    let numberOfStockList = 3;
+                
     function createStockRow(){
     let stockContainer = document.getElementById("stock-container");
     stockRow = document.createElement("div");
@@ -171,10 +105,11 @@ function createLedgerRow(){
     ledgerRow = document.createElement("div");
     ledgerRow.setAttribute("id","ledger-row");
     ledgerRow.setAttribute("class", "ledger-row")
-    loadDataAPPL();
-    loadDataTSLA();
+    // loadDataAPPL();
+    // loadDataTSLA();
     // loadDataTSLA0();
 
+    
     for (i=0; i < 20;i++){
         ledgerElement = document.createElement("div");
 
@@ -207,13 +142,14 @@ function createLedgerRow(){
                 ledgerElement.setAttribute("id", "transactionAmount"+[ledgerRowsAdded]);
                 ledgerElement.setAttribute("class", "ledgerElement");
             }
-            // loadData();
        
-        ledgerRow.append(ledgerElement);
-        
-    }
+            
+            ledgerRow.append(ledgerElement);
+            
+        }
     ledgerRowsAdded++;
     ledgerContainer.append(ledgerRow);
+
 
 
     function loadDataAPPL() {
@@ -223,8 +159,6 @@ function createLedgerRow(){
             try {
             var changeThis = xhr.responseText;
             var data = JSON.parse(changeThis);
-
-
             if (HighOrder == "false"){
                 data.sort(GetSortOrderLowest("price"));
                 // for (var item in data){
@@ -232,11 +166,10 @@ function createLedgerRow(){
                 // }
             } else if (HighOrder == "true"){
                 data.sort(GetSortOrderHighest("price"));
-                // for (var item in data){
-                //     console.log(data[item].date);
-                // }
+                for (var item in data){
+                    console.log(data[item].date);
+                }
             }
-
             populateData(data);
 
             } catch(e){
@@ -283,20 +216,20 @@ function createLedgerRow(){
     }   
 
     function populateData(json){
-        for(i=0;i<json.length;i++){
-            document.getElementById("date"+[i]).innerHTML = json[i].date;
-            document.getElementById("stock"+[i]).innerHTML = json[i].stock;
-            document.getElementById("transaction"+[i]).innerHTML = json[i].transaction;
-            document.getElementById("units"+[i]).innerHTML = json[i].units;
-            document.getElementById("price"+[i]).innerHTML = json[i].price;
-            document.getElementById("currency"+[i]).innerHTML = json[i].currency;
-            document.getElementById("transactionAmount"+[i]).innerHTML = '$'+json[i].transactionAmount;
+        //keep it asm7
+        for(i=0;i<7;i++){
+            document.getElementById("date"+[i]).innerText = json[i].date;
+            document.getElementById("stock"+[i]).innerText = json[i].stock;
+            document.getElementById("transaction"+[i]).innerText = json[i].transaction;
+            document.getElementById("units"+[i]).innerText = json[i].units;
+            document.getElementById("price"+[i]).innerText = json[i].price;
+            document.getElementById("currency"+[i]).innerText = json[i].currency;
+            document.getElementById("transactionAmount"+[i]).innerText = '$'+json[i].transactionAmount;
         }
     }
 
 
-
-    // https://www.c-sharpcorner.com/UploadFile/fc34aa/sort-json-object-array-based-on-a-key-attribute-in-javascrip/#:~:text=JSON%20return%20type%20is%20an,to%20get%20the%20sorting%20implemented.
+    //compare function
     function GetSortOrderLowest(prop){
         return function(a,b){
             if(a[prop] > b[prop]){
@@ -317,8 +250,6 @@ function createLedgerRow(){
             return 0;
         }
     }
-
-    // combineJSON();
 }
 
         while (numberOfLedgerRows !=0){
@@ -331,5 +262,68 @@ function createLedgerRow(){
             numberOfStockList--;
         }
 
+
+        function appendData(){
+            if (HighOrder == "false"){
+                ledgerCollection.sort(GetSortDateHighest("date"));
+            } else if (HighOrder == "true"){
+                // ledgerCollection.sort(GetSortOrderHighest("price"));
+            }
+            populateData(ledgerCollection);
+
+
+            function GetSortOrderLowest(prop){
+                return function(a,b){
+                    if(a[prop] > b[prop]){
+                        return 1;
+                    } else if (a[prop] < b[prop]){
+                        return -1;
+                    }
+                    return 0;
+                }
+            }
+            function GetSortOrderHighest(prop){
+                return function(a,b){
+                    if(a[prop] < b[prop]){
+                        return 1;
+                    } else if (a[prop] > b[prop]){
+                        return -1;
+                    }
+                    return 0;
+                }
+            }
+
+            // function GetSortDateLowest(data){
+
+            // }
+            function GetSortDateHighest(prop){
+                return function(a,b){
+                    if(a[prop] < b[prop]){
+                        return 1;
+                    } else if (a[prop] > b[prop]){
+                        return -1;
+                    }
+                    return 0;
+                }
+            }
+        }
+
+
+
+
+        function populateData(json){
+            //keep it asm7
+            for(i=0;i<ledgerCollection.length;i++){
+                document.getElementById("date"+[i]).innerText = json[i].date;
+                document.getElementById("stock"+[i]).innerText = json[i].stock;
+                document.getElementById("transaction"+[i]).innerText = json[i].transaction;
+                document.getElementById("units"+[i]).innerText = json[i].units;
+                document.getElementById("price"+[i]).innerText = json[i].price;
+                document.getElementById("currency"+[i]).innerText = json[i].currency;
+                document.getElementById("transactionAmount"+[i]).innerText = '$'+json[i].transactionAmount;
+            }
+        }
+
+        appendData();
     }
 
