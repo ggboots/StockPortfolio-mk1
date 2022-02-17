@@ -29,7 +29,7 @@ if(pageAccessedByReload === true){
 
 arrow.addEventListener("click", function(){
     if (arrowSwitch == true){
-        window.scrollBy(0,870);
+        window.scrollBy(0,900);
         arrowSwitch = false;
     } else if (arrowSwitch == false){
         window.scrollBy(0,-870);

@@ -1,9 +1,10 @@
-//Script to be ran first, loads json 
+//Script to be ran first, loads json into array objects
 
 const APPLjson = "./data/APPL-ledger-data.json";
 const TSLAjson = "./data/TSLA-ledger-data.json";
 const TSLA0json = "./data/TSLA-0-ledger-data.json";
-let ledgerCollection = [];
+const CROjson = "./data/CRO-ledger-data.json";
+const ledgerCollection = [];
 
 
 function APPLCollection(){
@@ -51,6 +52,22 @@ function TSLA0Collection(){
     xhr.send();
 }
 
+function CROCollection(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', CROjson);
+    xhr.onload = ()=> {
+        var request = xhr.responseText;
+        dataLength(JSON.parse(request));
+    }
+    function dataLength(json){
+        numberOfLedgerRows = json.length;
+        let CROCollection = [...json];
+        ledgerCollection.push(...CROCollection);
+    }
+    xhr.send();
+}
+
 APPLCollection();
 TSLA0Collection();
 TSLACollection();
+CROCollection();

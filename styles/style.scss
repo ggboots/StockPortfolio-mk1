@@ -24,8 +24,12 @@ $navigationHeader:#004444;
 body{
     height:200vh;
     width:100vw;
+    overflow: hidden;
     background: linear-gradient(360deg,$btn-primary, $btn-secondary);
 }
+
+
+  
 
 //MVP - minimum viable product
 // max-width is Desktop first -- min-width is Mobile first
@@ -72,6 +76,45 @@ body{
                 grid-area:item5;
             }
     }
+
+
+    .loader {
+        position:absolute;
+        height:inherit;
+        width:inherit;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background: #333333;
+        transition: opacity 4s, visibility 4s;
+      }
+      
+      .loader--hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      .loader::after {
+        content: "";
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border: 15px solid #dddddd;
+        border-top-color: #009578;
+        border-radius: 50%;
+        animation: loading 1.75s ease infinite;
+      }
+      
+      @keyframes loading {
+        from {
+          transform: rotate(0turn);
+        }
+        to {
+          transform: rotate(1turn);
+        }
+      }
 
     .holding-container{
         display:grid;
@@ -167,6 +210,7 @@ body{
         flex-direction: column;
         padding:0.5rem;
         height:100%;
+        width:100%;
         background:red;
 
         .stock-header-row{
@@ -253,6 +297,8 @@ body{
         display:grid;
         width:100vw;
         height:90vh;
+        overflow: hidden;
+        overflow-y: scroll;
         .item-6{
             margin-right:2rem;
             margin-left:2rem;
@@ -285,6 +331,8 @@ body{
 
             .ledger-row{
                 display: grid;
+                // overflow: hidden;
+                // overflow-y: scroll;
                 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                 margin-left:0.5rem;
                 margin-right:0.5rem;
@@ -306,6 +354,9 @@ body{
                 "item3 item3 item3 item4 item4 item4 item4"
                 "item3 item3 item3 item4 item4 item4 item4"
                 "item3 item3 item3 item5 item5 item5 item5";
+        }
+        .loader{
+            width:57%;
         }
     }
 
@@ -353,6 +404,9 @@ body{
                     display:none;
                 }
                 
+            }
+            .loader{
+                width:inherit;
             }
         }
     

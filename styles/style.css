@@ -14,6 +14,7 @@
 body {
   height: 200vh;
   width: 100vw;
+  overflow: hidden;
   background: -webkit-gradient(linear, left bottom, left top, from(#243447), to(#373854));
   background: linear-gradient(360deg, #243447, #373854);
 }
@@ -86,6 +87,71 @@ body {
   -ms-grid-column: 4;
   -ms-grid-column-span: 2;
   grid-area: item5;
+}
+
+.loader {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #333333;
+  -webkit-transition: opacity 4s, visibility 4s;
+  transition: opacity 4s, visibility 4s;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 15px solid #dddddd;
+  border-top-color: #009578;
+  border-radius: 50%;
+  -webkit-animation: loading 1.75s ease infinite;
+          animation: loading 1.75s ease infinite;
+}
+
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: rotate(0turn);
+            transform: rotate(0turn);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes loading {
+  from {
+    -webkit-transform: rotate(0turn);
+            transform: rotate(0turn);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
 }
 
 .holding-container {
@@ -244,6 +310,7 @@ body {
           flex-direction: column;
   padding: 0.5rem;
   height: 100%;
+  width: 100%;
   background: red;
 }
 
@@ -376,6 +443,8 @@ body {
   display: grid;
   width: 100vw;
   height: 90vh;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .ledger-container .item-6 {
@@ -442,6 +511,9 @@ body {
   .grid-container {
         grid-template-areas: "item1 item2 item2 item2 item2 item2 item2" "item3 item3 item3 item4 item4 item4 item4" "item3 item3 item3 item4 item4 item4 item4" "item3 item3 item3 item5 item5 item5 item5";
   }
+  .loader {
+    width: 57%;
+  }
 }
 
 @media only screen and (max-width: 1080px) {
@@ -495,6 +567,9 @@ body {
   }
   .holding-content .holding-element5 {
     display: none;
+  }
+  .loader {
+    width: inherit;
   }
 }
 

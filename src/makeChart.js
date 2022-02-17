@@ -1,9 +1,39 @@
 // Using chart.js
-
 const symbols = [];
 let APPLtotal = 0;
 let TSLAtotal = 0;
 let TSLAtotal1 = 0;
+
+const newArray = [...ledgerCollection];
+
+console.log(newArray);
+
+// const ledgerTest = [
+//     {
+//         name: "Tsla",
+//         age:22,
+//     },
+//     {
+//         name: "APPL",
+//         age:45,
+//     }
+// ];
+
+let filtered = ledgerCollection.filter(function(values){
+    return ledgerCollection;
+});
+
+console.log(filtered);
+
+function test(){
+    return 
+}
+
+// const test = ledgerTest.filter(function(value){
+//     return value.age >= 25;
+// })
+
+// console.log(test);
 
 async function makeChart(){
     await getData();
@@ -57,6 +87,7 @@ async function getData(){
         console.log('error - APPL');
     })
 
+    //.filter
     await fetch('./data/TSLA-ledger-data.json')
     .then(res => {
         return res.json();
