@@ -24,6 +24,7 @@ if (HighOrder == null && dateOrder == null){
 if(pageAccessedByReload === true){
     arrowSwitch = true;
     window.scrollBy(0,-900);
+
 }
 
 
@@ -32,14 +33,14 @@ arrow.addEventListener("click", function(){
         window.scrollBy(0,900);
         arrowSwitch = false;
     } else if (arrowSwitch == false){
-        window.scrollBy(0,-870);
+        window.scrollBy(0,-900);
         arrowSwitch = true;
     }
 });
 
 
 
-priceArrow.addEventListener('click', function(){
+priceArrow.addEventListener('c  lick', function(){
     if(HighOrder == "true"){
         sessionStorage.removeItem('arrowStatus');
         sessionStorage.setItem('arrowStatus',false);
@@ -80,3 +81,18 @@ priceArrow.addEventListener('click', function(){
 
 
 //When clicking on a drop down menu, set rest to null
+
+
+window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+  
+    loader.classList.add("loader--hidden");
+  
+    setTimeout(function(){
+        document.body.removeChild(loader);
+    }),4000;
+    
+    // loader.addEventListener("transitionend", () => {
+    //   document.body.removeChild(loader);
+    // });
+  })

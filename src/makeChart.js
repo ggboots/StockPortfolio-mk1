@@ -6,24 +6,10 @@ let TSLAtotal1 = 0;
 
 const newArray = [...ledgerCollection];
 
-console.log(newArray);
-
-// const ledgerTest = [
-//     {
-//         name: "Tsla",
-//         age:22,
-//     },
-//     {
-//         name: "APPL",
-//         age:45,
-//     }
-// ];
 
 let filtered = ledgerCollection.filter(function(values){
     return ledgerCollection;
 });
-
-console.log(filtered);
 
 function test(){
     return 

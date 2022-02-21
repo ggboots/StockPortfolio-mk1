@@ -138,11 +138,14 @@ while (numberOfLedgerRows !=0){
     createLedgerRow();
     numberOfLedgerRows--;
 }
+
+createLedgerRow(); //footer row to assist scroll UI
         
 while (numberOfStockList !=0){
     createStockRow();
     numberOfStockList--;
 }
+
 
 
     function appendData(){
@@ -191,5 +194,7 @@ while (numberOfStockList !=0){
         }
 
         appendData();
+
+        
     }
 

@@ -6,3 +6,9 @@ const redis = require('redis')
 const responseTime = require('response-time')
 const fs = require('fs')
 
+
+// fetch(USDAUD)
+// .then(response => response.json())
+// .then(data => {
+//     console.log(data)
+// });
